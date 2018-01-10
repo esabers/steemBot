@@ -32,6 +32,7 @@ subprocess.call(['piston', 'set', 'default_author', steemAccountName])
 # upvote random post from the most recent [numPostsToConsider]
 posts = steem.get_posts(limit=numPostsToConsider, sort='created')
 postId = randint(0, numPostsToConsider-1)
+print('hi')
 
 try:
     steem.vote(posts[postId]["identifier"], voteWeight)
