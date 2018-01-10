@@ -35,7 +35,7 @@ postId = randint(0, numPostsToConsider-1)
 print('hi')
 
 try:
-    steem.vote(posts['@dlive/live-streaming-challenges-and-the-next-dlivestar']["identifier"], voteWeight)
+    steem.vote('@dlive/live-streaming-challenges-and-the-next-dlivestar', voteWeight)
     time.sleep(400)
 except:
     print('[{:%Y-%m-%d, %H:%M:%S}] Vote failed: {}\n'.format(datetime.datetime.now(), sys.exc_info()[0]))
