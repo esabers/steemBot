@@ -9,7 +9,6 @@ import subprocess
 from piston.steem import Steem
 from random import randint
 import time
-print('hi1')
 # grab config vars
 percentChanceToPost = int(os.environ.get('percentChanceToPost'))
 numPostsToConsider = int(os.environ.get('numPostsToConsider'))
