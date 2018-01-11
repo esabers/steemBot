@@ -8,7 +8,7 @@ import os
 import subprocess
 from piston.steem import Steem
 from random import randint
-import time
+
 # grab config vars
 percentChanceToPost = int(os.environ.get('percentChanceToPost'))
 numPostsToConsider = int(os.environ.get('numPostsToConsider'))
@@ -32,11 +32,9 @@ subprocess.call(['piston', 'set', 'default_author', steemAccountName])
 # upvote random post from the most recent [numPostsToConsider]
 posts = steem.get_posts(limit=numPostsToConsider, sort='created')
 postId = randint(0, numPostsToConsider-1)
-print('hi')
 
 try:
-    steem.vote('@dlive/live-streaming-challenges-and-the-next-dlivestar', voteWeight)
-    time.sleep(400)
+    steem.vote(posts[postId]["identifier"], voteWeight)
 except:
     print('[{:%Y-%m-%d, %H:%M:%S}] Vote failed: {}\n'.format(datetime.datetime.now(), sys.exc_info()[0]))
 else:
